@@ -1,101 +1,156 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import Header from "./components/Header";
+import MobileHeader from "./components/MobileHeader";
+import { CallToAction } from "./components/CallToAction";
+import { useEffect, useState } from "react";
+import HeroSection from "./components/HeroSection";
+import { PhilosophySection } from "./components/PhilosophySection";
+import TechnologySection from "./components/TechnologySection";
+import TrustedSection from "./components/TrustedSection";
+import CompanySection from "./components/CompanySection";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  // Handle mouse movement for parallax effect
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const { clientX, clientY } = e;
+      setMousePos({
+        x: (clientX / window.innerWidth - 0.5) * 50, // Increased sensitivity
+        y: (clientY / window.innerHeight - 0.5) * 50,
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+  return (
+    <div className="">
+      <Header />
+      <MobileHeader />
+      <CallToAction />
+      <div
+        className="relative element bg-blue-500 md:h-screen h-[150vh] overflow-hidden md:mt-0"
+      >
+          {/* Mobile Left to Right Animation */}
+          <motion.div
+          initial={{ x: "-10%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1}}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="absolute  top-0 z-10 lg:hidden md:hidden w-full"
+        >
+          <Image
+            src="/assets/backgrounds/WaveLinesMobile1.svg"
+            alt="alt"
+            width={1080}
+            height={1080}
+            className="w-full "
+          />
+        </motion.div>
+          {/* Mobile Left to Right Animation */}
+          <motion.div
+          initial={{ x: "10%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1,  }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="absolute  top-0 z-10 lg:hidden md:hidden w-full blur-md"
+        >
+          <Image
+            src="/assets/backgrounds/WaveLinesMobile2.svg"
+            alt="alt"
+            width={1080}
+            height={1080}
+            className="w-full"
+          />
+        </motion.div>
+        {/* Right to Left Sliding Image */}
+        <motion.div
+          className="absolute bottom-0 md:-right-40 md:bottom-auto"
+          initial={{ x: 0 }}
+          animate={{ x: -50 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+        >
+          {/* Image for Larger Screens with Animation */}
+          <div className="hidden md:block ">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/assets/backgrounds/image.avif"
+              alt="Background Image"
+              width={1080}
+              height={1080}
+              className="md:h-[80vh]"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
+        </motion.div>
+
+        {/* Static Image for Mobile (No Animation) */}
+        <div className="md:hidden translate-y-[36rem]">
+          <Image
+            style={{ clipPath: "polygon(0 40%, 100% 26%, 100% 100%, 0% 100%)" }}
+            src="/assets/backgrounds/image.avif"
+            alt="Background Image"
+            width={1080}
+            height={1080}
+            className="h-[50vh] object-cover" // Centered and smaller on mobile
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        {/* Wave Image - Moves All Directions */}
+        <motion.div
+          className="md:block lg:block hidden top-0 md:bg-blue-500 "
+          style={{ clipPath: "polygon(0 0, 81% 0, 28% 100%, 0% 100%)" }}
+          transition={{ type: "spring", stiffness: 40, damping: 10 }}
         >
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/assets/backgrounds/WaveLinesDesktop4.svg"
+            alt="alt"
+            width={1080}
+            height={1080}
+            className="w-full h-screen"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        </motion.div>
+
+        {/* Another Wave - Moves Down & Parallax Effect */}
+        <motion.div
+          initial={{ y: "-40%", opacity: 0 }}
+          animate={{ y: 0, opacity: 1, x: mousePos.x / 2, y: mousePos.y / 2 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="md:absolute  top-0 z-10"
         >
           <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            src="/assets/backgrounds/WaveLinesDesktop1.svg"
+            alt="alt"
+            width={1080}
+            height={1080}
+            className="w-full"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        </motion.div>
+
+        {/* Left to Right Animation */}
+        <motion.div
+          initial={{ x: "-10%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1, x: mousePos.x / 2, y: mousePos.y / 2 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="md:absolute  top-0 blur-sm z-10"
         >
           <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+            src="/assets/backgrounds/WaveLinesDesktop3.svg"
+            alt="alt"
+            width={1080}
+            height={1080}
+            className="w-full"
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </motion.div>
+      </div>
+      <HeroSection />
+      <PhilosophySection />
+      <TechnologySection />
+      <TrustedSection />
+      <CompanySection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 }
