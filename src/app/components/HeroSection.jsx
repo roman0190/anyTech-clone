@@ -8,7 +8,7 @@ const HeroSection = () => {
       <div className="relative py-2 lg:mx-[11rem] mx-[10%] z-20 -mt-[14rem] pb-10">
         <div className="lg:grid lg:grid-cols-2 md:space-x-14">
           <div className="text-black space-y-6 pb-4 lg:px-10">
-            <h5 className="md:text-[20px] text-[12px] uppercase text-blue-500 font-Montserrat font-bold">
+            <h5 className="md:text-[18px] uppercase text-blue-500 font-Montserrat font-bold">
               POWERING THE FUTURE OF FINANCE
             </h5>
             <h1 className="whitespace-pre-line font-sans text-[42px] text-blue-950 lg:text-[56px] font-semibold leading-tight">
