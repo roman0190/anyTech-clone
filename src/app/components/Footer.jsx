@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="lg:text-right mt-4 lg:mt-0">
           <ul className="flex lg:flex-row gap-4 lg:gap-10 font-bold text-cyan-400 text-center">
             <li>Our Solutions</li>
-            <li className="lg:block border-r-[0.1rem] border-cyan-400 py-4"></li>
+            <li className="lg:block border-r-[0.01rem] border-cyan-400 py-4"></li>
             <li>AnyCaaS</li>
             <li>AnyBaaS</li>
             <li>AnyPaaS</li>
