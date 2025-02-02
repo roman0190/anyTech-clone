@@ -77,7 +77,7 @@ const ContactSection = () => {
         </motion.div>
 
         {/* Content Section */}
-        <div className="absolute md:bottom-[20%] bottom-[10%] left-[10%] flex flex-col gap-4">
+        <div className="absolute md:bottom-[12%] bottom-[20%] left-[10%] flex flex-col gap-4">
           <h1 className="sm:text-[56px] font-bold font-sans text-[45px] text-white">
             Legacy no longer
           </h1>
@@ -87,15 +87,14 @@ const ContactSection = () => {
           </p>
           <button
             href="/"
-            className="text-lg font-bold rounded-md shadow-sm bg-transparent mt-2 bg-[#e09353] flex justify-center lg:w-[40%] w-[90%] py-[13px] text-res-link lg:text-link lg:flex items-center group/highlight transition-all drop-shadow-button-primary hover:shadow-button-primary"
+            className="text-lg font-bold rounded-md shadow-sm bg-[#ffa052] mt-2 flex justify-center items-center lg:w-[40%] w-[90%] py-3 text-white hover:shadow-lg transition-all group"
           >
             Contact Us
             <svg
-              className="fill-white translate-x-3.5 transition-transform group-hover/highlight:translate-x-5"
+              className="fill-white ml-2 transition-all duration-300 ease-out group-hover:translate-x-2 group-hover:scale-110"
               width="7"
               height="11"
               viewBox="0 0 7 11"
-              fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path d="M6.67969 5.89844L2.13281 10.4688C1.89844 10.6797 1.54688 10.6797 1.33594 10.4688L0.796875 9.92969C0.585938 9.71875 0.585938 9.36719 0.796875 9.13281L4.40625 5.5L0.796875 1.89062C0.585938 1.65625 0.585938 1.30469 0.796875 1.09375L1.33594 0.554688C1.54688 0.34375 1.89844 0.34375 2.13281 0.554688L6.67969 5.125C6.89062 5.33594 6.89062 5.6875 6.67969 5.89844Z"></path>
