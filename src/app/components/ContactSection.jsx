@@ -77,7 +77,7 @@ const ContactSection = () => {
         </motion.div>
 
         {/* Content Section */}
-        <div className="absolute md:bottom-[12%] bottom-[20%] left-[10%] flex flex-col gap-4">
+        <div className="absolute md:bottom-[12%] bottom-[11%] left-[10%] flex flex-col gap-4">
           <h1 className="sm:text-[56px] font-bold font-sans text-[45px] text-white">
             Legacy no longer
           </h1>

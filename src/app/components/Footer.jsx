@@ -24,8 +24,11 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="flex flex-col lg:flex-row items-center justify-between bg-blue-950 min-h-[6vh] px-6 lg:px-[11rem] py-3 text-center">
-        <span>©2023 All rights reserved. Any Technology Pte Ltd.</span>
+      <div className="flex flex-col lg:flex-row items-center justify-between bg-blue-950 min-h-[6vh] px-6 lg:px-[11rem] py-3 text-center text-cyan-600 font-medium">
+        <span>
+          <span className="font-bold">©2023 All rights reserved. </span>Any
+          Technology Pte Ltd.
+        </span>
         <span className="mt-2 lg:mt-0">Privacy Policy</span>
       </div>
     </div>
