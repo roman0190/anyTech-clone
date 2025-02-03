@@ -61,7 +61,7 @@ export const PhilosophySection = () => {
         {list.map((item) => (
           <li
             key={item.id}
-            className="bg-[#F8FCFF] px-10 py-6 flex flex-col gap-4 rounded-xl text-blue-950 w-[320px] h-[320px]"
+            className="bg-[#F8FCFF] px-10 py-6 flex flex-col gap-4 rounded-xl text-blue-950 h-[320px]"
           >
             <Image
               src={item.url}
@@ -90,7 +90,7 @@ export const PhilosophySection = () => {
         >
           {list.map((item) => (
             <SwiperSlide key={item.id}>
-              <div className="px-10 py-6 flex flex-col gap-4 text-blue-950 w-full h-[320px]">
+              <div className="px-10 py-6 text-blue-950 w-full h-[420px] space-y-6">
                 <Image
                   src={item.url}
                   alt="alt"

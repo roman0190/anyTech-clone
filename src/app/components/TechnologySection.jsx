@@ -86,7 +86,7 @@ const TechnologySection = () => {
           slidesPerView={1}
           onSwiper={(swiper) => (swiperRef.current = swiper)} // Store Swiper instance
           onSlideChange={(swiper) => setSelected(swiper.realIndex)}
-          pagination={{ clickable: true }}
+          // pagination={{ clickable: false }}
           modules={[Pagination]}
           className="w-full mt-6 shadow-xl shadow-slate-300 rounded-xl"
         >
