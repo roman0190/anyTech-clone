@@ -34,7 +34,7 @@ export default function Home() {
       <MobileHeader />
       <CallToAction />
       <div
-        className="relative element bg-blue-500 md:h-screen h-[150vh] overflow-hidden md:mt-0"
+        className="relative element bg-blue-500 md:h-[89vh] h-[150vh] overflow-hidden md:mt-0"
       >
           {/* Mobile Left to Right Animation */}
           <motion.div
